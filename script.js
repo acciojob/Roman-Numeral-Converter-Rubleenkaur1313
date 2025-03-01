@@ -1,6 +1,6 @@
 function convertToRoman(num) {
     // Define the Roman numeral symbols and their corresponding values
-    const romanSymbols = [
+    const romanNumerals = [
         ['M', 1000],
         ['D', 500],
         ['C', 100],
@@ -10,17 +10,19 @@ function convertToRoman(num) {
         ['I', 1]
     ];
 
-    let result = '';
+    // Initialize the result string
+    let result = "";
 
-    // Iterate over the symbols and build the Roman numeral
-    for (let [symbol, value] of romanSymbols) {
+    // Iterate over the symbols and values
+    for (let i = 0; i < romanNumerals.length; i++) {
+        const [symbol, value] = romanNumerals[i];
+
         // While the number is greater than or equal to the value
         while (num >= value) {
             result += symbol; // Append the symbol to the result
-            num -= value;     // Decrease the number by the value
+            num -= value;     // Subtract the value from the number
         }
     }
 
     return result; // Return the final Roman numeral
 }
-
